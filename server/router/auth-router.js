@@ -2,7 +2,9 @@
 
 const express = require("express");
 const router = express.Router();
-const {home,register} = require("../controllers/auth-controller")
+// const {home,register} = require("../controllers/auth-controller")
+ const authcontrollers = require("../controllers/auth-controller")
+
 
 
 
@@ -16,9 +18,10 @@ const {home,register} = require("../controllers/auth-controller")
 // });     
 
 // another way when define , most simple
-// router.route("/").get(home);     
+router.route("/").get(authcontrollers.home);     
 
-// router.route("/register").get(register);
+// router.route("/register").get(authcontrollers.register);
+router.route("/register").post(authcontrollers.register);
 // app.get("/",(req,res)=>{
 // res.status(200).send("welcome to the url")
 // }) ;        // app.get this is http method
