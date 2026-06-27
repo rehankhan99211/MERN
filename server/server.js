@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 
  const router = require("./router/auth-router")
+ const connectDb = require("./utils/db")
 
   app.use(express.json());     //app.use(express.json()) is a built-in middleware function in Express that parses incoming HTTP requests with JSON payloads. It extracts the raw JSON text from the request body, converts it into a standard JavaScript object, and attaches it directly to the req.body property.
 
@@ -18,7 +19,11 @@ const app = express();
 // }); 
 
 const PORT= 5000
-app.listen(PORT,()=>{
-    console.log(`server is running at port:${PORT}`);
+
+connectDb().then(()=>{ 
+    app.listen(PORT,()=>{
+        console.log(`server is running at port:${PORT}`);
+        
+    })   // app.listen method to show the server to user running on whiich port
+})
     
-})   // app.listen method to show the server to user running on whiich port
