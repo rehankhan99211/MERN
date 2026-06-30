@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 
-const URI= "mongodb+srv://rajapardesi10041_db_user:1UIQwzhdJ2ewDHNr@cluster0.mur49cs.mongodb.net/?appName=Cluster0"
+const URI= Process.env.REACT_APP_URL;
 
 // mongoose.connect(URI);     //The code mongoose.connect(URI); is the standard command used in Node.js applications to establish a connection to a MongoDB database using the ⁠Mongoose ODM (Object Data Modeling) library.
 
@@ -11,8 +11,8 @@ try {
     console.log("connection sucsessful to DB");
     
 } catch (error) {
-    console.error("database connection failed reh");
-    process.exit(0);
+    console.error("database connection failed ...");
+    process.exit(0);git 
 }
 };
 module.exports = connectDb;
